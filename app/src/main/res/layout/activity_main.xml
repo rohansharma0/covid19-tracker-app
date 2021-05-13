@@ -1,31 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
+    android:id="@+id/scrollView"
     tools:context=".MainActivity">
-
-    <ProgressBar
-        android:id="@+id/progress_circular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
-
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="16dp"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
             android:orientation="vertical">
-
 
             <LinearLayout
                 android:id="@+id/countryChangeLayout"
@@ -95,10 +83,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/textColorDeepBlue"
                             android:layout_marginVertical="10dp"
-                            android:textSize="20sp"
-                            android:text="Know safety tips and \nprecautions"/>
+                            android:lineHeight="25dp"
+                            android:text="Know safety tips and \nprecautions"
+                            android:textColor="@color/textColorDeepBlue"
+                            android:textSize="18sp" />
 
                         <ImageButton
                             android:id="@+id/symptomsBtn"
@@ -135,9 +124,9 @@
                         android:layout_height="match_parent"
                         android:textSize="15dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center"
                         android:textColor="#c8815b"
-                        android:textStyle="bold"
                         android:text="Country"/>
 
                     <TextView
@@ -148,8 +137,8 @@
                         android:gravity="center"
                         android:text="Worldwide"
                         android:textColor="#c8815b"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="15dp" />
 
                 </LinearLayout>
 
@@ -175,9 +164,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Confirmed"
                         android:textColor="@color/confirmedTextColor"
-                        android:textSize="18dp"
-                        android:text="Confirmed"/>
+                        android:textSize="17dp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -187,23 +177,38 @@
                         android:gravity="end"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/tvConfirmed"
+                        <com.facebook.shimmer.ShimmerFrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="25dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/confirmedTextColor"
-                            android:text="16.07Cr"/>
+                            android:id="@+id/tvConfirmedShimmer"
+                            android:layout_marginBottom="4dp">
 
-                        <TextView
-                            android:id="@+id/tvTodayConfirmed"
+                            <TextView
+                                android:id="@+id/tvConfirmed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="....."
+                                android:textColor="@color/confirmedTextColor"
+                                android:textSize="23dp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textStyle="bold" />
+
+                        </com.facebook.shimmer.ShimmerFrameLayout>
+
+                        <com.facebook.shimmer.ShimmerFrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="13dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/confirmedTextColor"
-                            android:text="+16.07Cr"/>
+                            android:id="@+id/tvTodayConfirmedShimmer">
+                            <TextView
+                                android:id="@+id/tvTodayConfirmed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="@color/confirmedTextColor"
+                                android:text="....."/>
+                        </com.facebook.shimmer.ShimmerFrameLayout>
 
                     </LinearLayout>
 
@@ -225,20 +230,29 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
+                        android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/activeTextColor"
-                        android:textSize="16dp"
+                        android:textSize="17dp"
                         android:text="Active"/>
 
-                    <TextView
-                        android:id="@+id/tvActive"
+                    <com.facebook.shimmer.ShimmerFrameLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
-                        android:textSize="25dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/activeTextColor"
-                        android:text="1.78Cr"/>
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/tvActiveShimmer">
+
+                        <TextView
+                            android:id="@+id/tvActive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="....."
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="@color/activeTextColor"
+                            android:textSize="23dp"
+                            android:textStyle="bold" />
+                    </com.facebook.shimmer.ShimmerFrameLayout>
 
                 </RelativeLayout>
 
@@ -266,7 +280,8 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:textColor="@color/recoveredTextColor"
-                        android:textSize="18dp"
+                        android:textSize="17dp"
+                        android:fontFamily="@font/poppins_medium"
                         android:text="Recovered"/>
 
 
@@ -279,23 +294,38 @@
                         android:gravity="end"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/tvRecovered"
+                        <com.facebook.shimmer.ShimmerFrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="25dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/recoveredTextColor"
-                            android:text="9.58Cr"/>
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tvRecoveredShimmer">
 
-                        <TextView
-                            android:id="@+id/tvTodayRecovered"
+                            <TextView
+                                android:id="@+id/tvRecovered"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="....."
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="@color/recoveredTextColor"
+                                android:textSize="23dp"
+                                android:textStyle="bold" />
+                        </com.facebook.shimmer.ShimmerFrameLayout>
+
+                        <com.facebook.shimmer.ShimmerFrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="13dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/recoveredTextColor"
-                            android:text="+16.07Cr"/>
+                            android:id="@+id/tvTodayRecoveredShimmer">
+
+                            <TextView
+                                android:id="@+id/tvTodayRecovered"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="@color/recoveredTextColor"
+                                android:text="....."/>
+                        </com.facebook.shimmer.ShimmerFrameLayout>
 
                     </LinearLayout>
 
@@ -317,8 +347,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
+                        android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/deathTextColor"
-                        android:textSize="16dp"
+                        android:textSize="17dp"
                         android:text="Deaths"/>
 
                     <LinearLayout
@@ -329,40 +360,43 @@
                         android:gravity="end"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/tvDeaths"
+
+                        <com.facebook.shimmer.ShimmerFrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="25dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/deathTextColor"
-                            android:text="33.2L"/>
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tvDeathsShimmer">
 
-                        <TextView
-                            android:id="@+id/tvTodayDeaths"
+
+                            <TextView
+                                android:id="@+id/tvDeaths"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textSize="23dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/deathTextColor"
+                                android:text="....."/>
+
+                        </com.facebook.shimmer.ShimmerFrameLayout>
+
+                        <com.facebook.shimmer.ShimmerFrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="13dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/deathTextColor"
-                            android:text="+16.07Cr"/>
+                            android:id="@+id/tvTodayDeathsShimmer">
 
+                            <TextView
+                                android:id="@+id/tvTodayDeaths"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/deathTextColor"
+                                android:text="....."/>
+                        </com.facebook.shimmer.ShimmerFrameLayout>
                     </LinearLayout>
-
-
-
-
-
                 </RelativeLayout>
-
-
             </LinearLayout>
-
-
         </LinearLayout>
-
-
-
-    </ScrollView>
-
-</RelativeLayout>
+</ScrollView>
